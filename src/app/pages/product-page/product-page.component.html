@@ -1,0 +1,18 @@
+<div class="product_name">
+	{{product.name}}
+</div>
+
+<div class="flexbox">
+	<app-photo-slider [product]="product"></app-photo-slider>
+	<div class="product_description">
+		<div>{{product.short_description}}</div>
+		<div>{{product.description}}</div>
+	</div>
+	<div>
+		<button>Cart</button>
+		<div class="available">
+			{{product.available}}
+		</div>
+	</div>
+</div>
+

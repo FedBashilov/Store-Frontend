@@ -1,0 +1,23 @@
+<div class="wrapper">
+	<div class="product_card" *ngFor="let product of allProducts; index as i;">
+		<div class="image">
+			<img class="product_card_image" [defaultImage]="'assets/loading.png'" [lazyLoad]='this.apiService.PHP_API_SERVER+"/backend/product-photos/"+product.photo'>
+		</div>
+		<div class="product_card_content">
+			<div class="row_flexbox">
+				<div class="product_name notranslate">
+					{{product.name}}
+				</div>
+				<div class="product_price">
+					{{product.price}} $
+				</div>
+			</div>
+			<div class="product_description">
+				{{product.description}}
+			</div>
+		</div>
+		<div class="cart_button">
+			<button class="add_to_cart_button" type="button" name="button" (click)="this.cartService.addToCart(product.id, product.name, product.price);">Add to Cart</button>
+		</div>
+	</div>
+</div>

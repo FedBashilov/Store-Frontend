@@ -1,0 +1,17 @@
+.flex_row{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	margin: 10px;
+}
+
+.section_text{
+	margin: 10px;
+	font-size: 1.3em;
+}
+
+img {
+  display: block;
+}

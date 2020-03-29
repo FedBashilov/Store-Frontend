@@ -1,0 +1,28 @@
+.wrapper{
+  font-size: 14px;
+  position: relative;
+}
+
+header{
+  background: #FFF;
+  padding: 10px 30px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.content{
+  width: 100%;
+  transition: 0.5s;
+  position: relative;
+  z-index: 1;
+}
+.content.moved{
+  transform: translateX(280px);
+}
+
+
+
+@media all and (min-width: 800px) {
+  .content.moved{
+    transform: translateX(0px);
+  }
+}

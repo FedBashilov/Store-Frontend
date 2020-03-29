@@ -1,0 +1,15 @@
+.slider{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.product_image{
+	height: 400px;
+	width: 270px;
+}
+
+.arrow_previous, .arrow_next{
+	font-size: 3em;
+	cursor: pointer;
+}

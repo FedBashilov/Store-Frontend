@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Store';
+
+  constructor(private router: Router) {
+  }
+
+  moveContent(){
+    let content: any = document.getElementsByClassName("content")[0];
+    if( content.classList.contains("moved") ){
+      content.classList.remove("moved");
+    } else {
+      content.classList.add("moved");
+    }
+  }
+
 }

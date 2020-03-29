@@ -1,0 +1,16 @@
+.product_name{
+	text-align: center;
+	font-size: 1.5em;
+	padding: 15px;
+}
+
+.flexbox{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+}
+
+.product_description{
+	margin: 0 15px;
+}

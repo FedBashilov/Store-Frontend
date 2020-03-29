@@ -1,0 +1,105 @@
+<div class="cart_icon_wrapper" (click)="showOrHideOrderForm()">
+  <div class="cart_icon">
+    <img src="assets/cart.png" alt="" height="20px" width="20px">
+    <div class="cart_counter">
+      {{this.cartCounter}}
+    </div>
+  </div>
+</div>
+
+<div class="moving_order_form">
+  <div class="cart_list">
+    <div class="cart_title">
+      Cart
+    </div>
+    <div class="product" *ngFor="let product of products; index as i;">
+      <div class="product_name">
+        {{product.name}}
+      </div>
+      <div class="product_price">
+        {{product.price}}$ х {{product.amount}}
+      </div>
+      <div class="plus_minus_product">
+        <div class="button_wrapper">
+          <button class="minus_product_button" type="button" name="minus_product"
+            (click)="this.cartService.deleteFromCart(product.id);
+            this.products = this.cartService.getItems();
+            this.totalPrice = this.cartService.getTotalPrice()+this.delivery; ">
+          -</button>
+        </div>
+        <div>
+        1
+        </div>
+        <div class="button_wrapper">
+          <button class="plus_product_button" type="button" name="minus_product"
+            (click)="this.cartService.addToCart(product.id, product.name, product.price);
+            this.products = this.cartService.getItems();
+            this.totalPrice = this.cartService.getTotalPrice()+this.delivery;">
+          +</button>
+        </div>
+      </div>
+    </div>
+    <div class="if_cart_exist" *ngIf="this.products[0]; else emptyCart">
+      <div class="delivery">
+        <div>
+          Delivery
+        </div>
+        <div>
+          {{delivery}}$
+        </div>
+      </div>
+      <div class="total">
+        <div>
+          Total:
+        </div>
+        <div class="total_price">
+          {{totalPrice}}$
+        </div>
+      </div>
+    </div>
+    <ng-template  #emptyCart>
+      <div class="empty_cart">
+        Your cart is empty
+      </div>
+    </ng-template>
+  </div>
+
+  <form class="order_form" [formGroup]="orderForm" (ngSubmit)="onSubmit()" *ngIf="this.cartCounter!=0">
+    <div class="order_form_title">
+      Fill out the order form
+    </div>
+    <div class="form_element">
+      <mat-form-field>
+        <input matInput type="text" formControlName="name" placeholder = "Name">
+      </mat-form-field>
+      <div class="error" *ngIf="isControlInvalid('name')">
+        The name must consist only of English letters
+      </div>
+    </div>
+    <div class="form_element">
+      <mat-form-field>
+        <input matInput type="text" formControlName="phone" placeholder = "Phone">
+      </mat-form-field>
+      <div class="error" *ngIf="isControlInvalid('phone')">
+        A phone number can only consist of numbers and a plus sign
+      </div>
+    </div>
+    <div class="form_element">
+      <mat-form-field>
+        <input matInput type="text" formControlName="address" placeholder = "Address">
+      </mat-form-field>
+      <div class="error" *ngIf="isControlInvalid('address')">
+        Please enter the delivery address
+      </div>
+    </div>
+    <div class="form_element">
+      <mat-checkbox color="primary" value="true" [checked]="true" [disabled] = "true">
+        I agree to the processing of personal data
+      </mat-checkbox>
+    </div>
+    <button class="place_an_order_button" type="submit">Place an order</button>
+  </form>
+</div>
+
+<div class="order_form_curtain off" (click)="showOrHideOrderForm()">
+</div>

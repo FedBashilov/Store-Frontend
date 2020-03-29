@@ -1,0 +1,8 @@
+<div class="slider" (dragover)="pressed($event)" >
+	<div class="arrow_previous" (click)="changeImage(-1)" ><=</div>
+	<div>
+		<img class="product_image" src="{{this.apiService.PHP_API_SERVER}}/backend/product_photos/{{this.product.photos[curPhotoIndex]}}" width="100%" height="100%">
+	</div>
+	<div class="arrow_next" (click)="changeImage(1)">=></div>
+</div>
+

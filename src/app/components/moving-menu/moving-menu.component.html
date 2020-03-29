@@ -1,0 +1,60 @@
+<div class="moving_menu">
+  <nav class="menu_list">
+    <div class="menu_item_wrapper">
+      <a class="menu_item" routerLink="/home" (click)="showOrHideMenu()">
+        Home
+      </a>
+    </div>
+    <div class="menu_item_wrapper">
+      <a class="menu_item" routerLink="/shop" (click)="showOrHideMenu()">
+        Shop
+      </a>
+    </div>
+    <div class="menu_item_wrapper">
+      <a class="menu_item" routerLink="/about-us" (click)="showOrHideMenu()">
+        About us
+      </a>
+    </div>
+    <div class="menu_item_wrapper">
+      <a class="menu_item" routerLink="/contacts" (click)="showOrHideMenu()">
+        Contact us
+      </a>
+    </div>
+  </nav>
+  <div class="icon_wrapper">
+    <div class="icon burger" (click)="showOrHideMenu()">
+      <div class="b_line1"></div>
+      <div class="b_line2"></div>
+      <div class="b_line3"></div>
+    </div>
+  </div>
+</div>
+
+<div class="curtain off" (click)="showOrHideMenu()">
+</div>
+
+<div class="line-header">
+  <nav class="line-menu">
+    <a class="line_menu_item current" routerLink="/home">
+      Home
+    </a>
+    <a class="line_menu_item" routerLink="/shop">
+      Shop
+    </a>
+    <a class="line_menu_item" routerLink="/about-us">
+      About us
+    </a>
+    <a class="line_menu_item" routerLink="/contacts">
+      Contact us
+    </a>
+  </nav>
+
+  <div class="title notranslate">
+    <div class="main_title">
+      Timothy Woodpecker
+    </div>
+    <div class="subtitle">
+      handmade studio
+    </div>
+  </div>
+</div>
