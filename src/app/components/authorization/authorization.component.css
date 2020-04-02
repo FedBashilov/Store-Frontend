@@ -1,0 +1,133 @@
+.logout_wrapper{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.user_name{
+  font-size: 1.2em;
+  margin-right: 15px;
+}
+
+/*----login_icon_wrapper----*/
+.login_icon_wrapper, .logout_icon_wrapper{
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content:center;
+  align-items: center;
+}
+.login_icon, .logout_icon{
+  cursor: pointer;
+}
+
+
+/*moving login form*/
+.moving_auth_window{
+  border: 1px solid black;
+  width: 500px;
+  position: absolute;
+  right: -100%;
+  top: auto;
+  padding: 20px;
+  z-index: 200;
+  transform: translateX(100%);
+  -webkit-transition-duration: 0.5s;
+  -moz-transition-duration: 0.5s;
+  -o-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+  background: #FFF;
+  color: black;
+}
+.moving_auth_window.show{
+  transform: translateX(0%);
+}
+
+
+
+/*--------login_form-----*/
+.login_form, .registration_form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.form_title{
+  margin-bottom: 10px;
+  font-size: 1.2em;
+  font-weight: 500;
+}
+.form_element{
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.error{
+  color: red;
+  font-size: 0.8em;
+}
+.response_error{
+  color: red;
+  font-size: 1.1em;
+  margin-bottom: 10px;
+}
+
+
+input.ng-touched.ng-invalid{
+ border-color: red;
+}
+
+.login_button, .registration_button{
+	padding: 10px 20px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	-webkit-transition-duration: 0.2s;
+  -moz-transition-duration: 0.2s;
+  -o-transition-duration: 0.2s;
+	transition-duration: 0.2s;
+	background-color: #ffd56b;
+	border: 2px solid #ffcc4a;
+	color: black;
+	outline:none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.login_button:active, .registration_button:active{
+	background-color: #ffcc4a;
+	border: 1px solid #ffcc4a;
+	transform: scale(0.95);
+}
+
+.go_to_registration, .go_to_login{
+  text-align: center;
+  margin-top: 10px;
+}
+.form_link{
+  text-decoration: underline;
+  color: blue;
+  cursor: pointer;
+}
+/*------curtain-------------------*/
+
+.form_curtain{
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100vh;
+  background: #000;
+  z-index: 100;
+  -webkit-transition: opacity 0.5s, visibility 0.1s;
+  -moz-transition: opacity 0.5s, visibility 0.1s;
+  -o-transition: opacity 0.5s, visibility 0.1s;
+  transition: opacity 0.5s, visibility 0.1s;
+}
+.form_curtain.off{
+  visibility: hidden;
+  opacity: 0;
+}
+.form_curtain.on{
+  visibility: visible;
+  opacity: 0.5;
+}

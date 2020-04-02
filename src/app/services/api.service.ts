@@ -4,13 +4,14 @@ import { Observable } from  'rxjs';
 
 import { Product } from  './../models/product.model';
 import { Order } from  './../models/order.model';
+import { User } from '../models/user.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
 
-  public PHP_API_SERVER = "http://localhost";
+  public PHP_API_SERVER = "https://localhost";
 
   constructor(private httpClient: HttpClient) {}
 
@@ -24,6 +25,11 @@ export class ApiService {
 
   postOrder(newOrder: Order): Observable<number>{
     return this.httpClient.post<number>(`${this.PHP_API_SERVER}/API.php/orders`, {data: newOrder} );
+  }
+
+  getUserInfo(jwt): Observable<User>{
+    let headers = new HttpHeaders().set('JWT', `${jwt}`);
+    return this.httpClient.get<User>(`${this.PHP_API_SERVER}/API.php/user`, {headers: headers} );
   }
 
 }

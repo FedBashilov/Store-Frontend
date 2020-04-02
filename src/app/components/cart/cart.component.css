@@ -166,7 +166,7 @@ input.ng-touched.ng-invalid{
 	background-color: #ffd56b;
 	border: 2px solid #ffcc4a;
 	color: black;
-	outline:none;
+	outline: none;
   border-radius: 6px;
 }
 

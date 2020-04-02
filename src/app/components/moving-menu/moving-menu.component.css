@@ -111,9 +111,9 @@
   align-items: center;
   position: absolute;
   right: -40px; top: 0px;
-  width: 40px; height: 40px;
+  width: 40px; height: 50px;
   background: #FFF;
-  border-bottom-right-radius: 22px;
+
   z-index: 100;
 }
 
@@ -152,6 +152,20 @@
 .icon.cross .b_line3{
   transform: rotate(-45deg);
 }
+
+/*--------------------((------------------------*/
+.title_wrapper{
+  position: relative;
+}
+
+app-authorization{
+  position: absolute;
+  top: 0px; right: 0px;
+}
+
+
+
+
 /*------------------------------------*/
 
 
@@ -175,5 +189,9 @@
   .curtain.on{
     visibility: hidden;
     opacity: 0;
+  }
+
+  app-authorization{
+    top: -50px;
   }
 }

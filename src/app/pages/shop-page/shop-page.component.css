@@ -26,3 +26,9 @@ app-cart{
   float: right;
   height: inherit;
 }
+
+@media all and (max-width: 840px){
+  .title{
+    margin-left: 40px;
+  }
+}

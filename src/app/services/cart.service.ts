@@ -36,7 +36,7 @@ export class CartService {
         let data = {
           name: name,
           price: price,
-          amount: 1 
+          amount: 1
         };
         let serialData = JSON.stringify(data);
         localStorage.setItem(id, serialData);
@@ -61,10 +61,12 @@ export class CartService {
     let items: CartItem[] = [];
     let bufItem: CartItem;
     Object.keys(localStorage).forEach((key) => {
-      bufItem = new CartItem;
-      bufItem = JSON.parse(localStorage.getItem(key));
-      bufItem.id = parseInt(key);
-      items.push(bufItem);
+      if(key != 'jwt'){
+        bufItem = new CartItem;
+        bufItem = JSON.parse(localStorage.getItem(key));
+        bufItem.id = parseInt(key);
+        items.push(bufItem);
+      }
     });
     return items;
   }
@@ -73,8 +75,10 @@ export class CartService {
     let totalPrice: number = 0;
     let data;
     Object.keys(localStorage).forEach((key) => {
-      data = JSON.parse(localStorage.getItem(key));
-      totalPrice += data.price*data.amount;
+      if(key != 'jwt'){
+        data = JSON.parse(localStorage.getItem(key));
+        totalPrice += data.price*data.amount;
+      }
     });
     return totalPrice;
   }

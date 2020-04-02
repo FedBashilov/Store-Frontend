@@ -17,6 +17,7 @@ import { ProductListComponent } from './components/product-list/product-list.com
 import { CartComponent } from './components/cart/cart.component';
 import { SuccessfulOrderDialogComponent } from './components/successful-order-dialog/successful-order-dialog.component';
 import { MovingMenuComponent } from './components/moving-menu/moving-menu.component';
+import { AuthorizationComponent } from './components/authorization/authorization.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { MovingMenuComponent } from './components/moving-menu/moving-menu.compon
     routingComponents,
     CartComponent,
     SuccessfulOrderDialogComponent,
-    MovingMenuComponent
+    MovingMenuComponent,
+    AuthorizationComponent
   ],
   imports: [
     BrowserModule,

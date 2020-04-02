@@ -78,7 +78,7 @@ export class CartComponent implements OnInit, OnDestroy {
 
     this.apiService.postOrder(order).subscribe( (newOrderId: number) =>{
       this.cartService.clearCart();
-      this.products=this.cartService.getItems();
+      this.products = this.cartService.getItems();
       this.totalPrice = this.cartService.getTotalPrice();
       this.showOrHideOrderForm();
       this.initForm();

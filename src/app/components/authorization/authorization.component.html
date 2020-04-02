@@ -1,0 +1,98 @@
+<div class="logout_icon_wrapper" *ngIf="isLoggedin; else loginIcon" >
+  <div class="user_name">
+    {{this.user.first_name}}
+  </div>
+  <img class="logout_icon" src="assets/logout.png" alt="" height="40px" width="40px" (click)="logout()">
+</div>
+
+<ng-template #loginIcon>
+  <div class="login_icon_wrapper">
+    <img class="login_icon" src="assets/login.png" alt="" height="40px" width="40px" (click)="showOrHideForm()">
+  </div>
+</ng-template>
+
+
+<div class="moving_auth_window">
+  <div class="wrapper_login_form" *ngIf="isRegistered; else registration">
+    <form class="login_form" [formGroup]="loginForm" (ngSubmit)="onSubmitLogin()">
+      <div class="form_title">
+        Fill out the login form
+      </div>
+      <div class="form_element">
+        <mat-form-field>
+          <input matInput type="text" formControlName="email" placeholder = "Email">
+        </mat-form-field>
+        <div class="error" *ngIf="isControlInvalid('email', this.loginForm)">
+          The email must consist only of English letters
+        </div>
+      </div>
+      <div class="form_element">
+        <mat-form-field>
+          <input matInput type="password" formControlName="password" placeholder = "Password">
+        </mat-form-field>
+        <div class="error" *ngIf="isControlInvalid('password', this.loginForm)">
+          A password must have at least 8 characters
+        </div>
+      </div>
+      <div class="response_error">
+        {{loginErrorMessage}}
+      </div>
+      <button class="login_button" type="submit">Login</button>
+    </form>
+    <div class="go_to_registration">
+      Don't have an account yet
+      <span class="form_link" (click)="isRegistered = !isRegistered">Register here!</span>
+    </div>
+  </div>
+
+  <ng-template #registration>
+    <form class="registration_form" [formGroup]="registrationForm" (ngSubmit)="onSubmitRegistration()">
+      <div class="form_title">
+        Fill out the registration form
+      </div>
+      <div class="form_element">
+        <mat-form-field>
+          <input matInput type="text" formControlName="first_name" placeholder = "First name">
+        </mat-form-field>
+        <div class="error" *ngIf="isControlInvalid('first_name', this.registrationForm)">
+          The first name must consist only of English letters and at least 2 characters
+        </div>
+      </div>
+      <div class="form_element">
+        <mat-form-field>
+          <input matInput type="text" formControlName="last_name" placeholder = "Last name">
+        </mat-form-field>
+        <div class="error" *ngIf="isControlInvalid('last_name', this.registrationForm)">
+          The last name must consist only of English letters and at least 2 characters
+        </div>
+      </div>
+      <div class="form_element">
+        <mat-form-field>
+          <input matInput type="text" formControlName="email" placeholder = "Email">
+        </mat-form-field>
+        <div class="error" *ngIf="isControlInvalid('email', this.registrationForm)">
+          The email must consist only of English letters
+        </div>
+      </div>
+      <div class="form_element">
+        <mat-form-field>
+          <input matInput type="password" formControlName="password" placeholder = "Password">
+        </mat-form-field>
+        <div class="error" *ngIf="isControlInvalid('password', this.registrationForm)">
+          A password must have at least 8 characters
+        </div>
+      </div>
+      <button class="registration_button" type="submit">Register</button>
+    </form>
+    <div class="go_to_login">
+      Already have account?
+      <span class="form_link"  (click)="isRegistered = !isRegistered">Login here!</span>
+    </div>
+
+  </ng-template>
+</div>
+
+
+
+<div class="form_curtain off" (click)="showOrHideForm()">
+</div>
