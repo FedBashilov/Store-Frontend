@@ -7,7 +7,6 @@ import { CartItem } from '../models/cart-item.model';
   providedIn: 'root'
 })
 export class CartService {
-  items = [];
 
   private cartCounterSubject = new BehaviorSubject<number>(this.setCartCounter());
   cartCounter = this.cartCounterSubject.asObservable();
@@ -26,65 +25,63 @@ export class CartService {
   addToCart(id, name, price){
     this.cartCounterSubject.next(++this.counter);
 
-    let item = JSON.parse(localStorage.getItem(id));
-      if(item != null){
-        item.amount++;
-        let serialData = JSON.stringify(item);
-        localStorage.removeItem(id);
-        localStorage.setItem(id, serialData);
-      } else{
-        let data = {
-          name: name,
-          price: price,
-          amount: 1
-        };
-        let serialData = JSON.stringify(data);
-        localStorage.setItem(id, serialData);
+    let items = this.getItems();
+
+    for (let i = 0; i < items.length; i++) {
+      if (items[i].id == id) {
+        items[i].amount++;
+        localStorage.setItem("cartItems", JSON.stringify(items));
+        return;
       }
+    }
+
+    items.push( new CartItem(id, name, price, 1));
+    localStorage.setItem("cartItems", JSON.stringify(items));
   }
 
   deleteFromCart(id){
     this.cartCounterSubject.next(--this.counter);
+    let items = this.getItems();
 
-    let item = JSON.parse(localStorage.getItem(id));
-      if(item.amount > 1){
-        item.amount--;
-        let serialData = JSON.stringify(item);
-        localStorage.removeItem(id);
-        localStorage.setItem(id, serialData);
-      } else{
-        localStorage.removeItem(id);
+    for (let i = 0; i < items.length; i++) {
+      if (items[i].id == id) {
+        items[i].amount--;
+
+        if (items[i].amount == 0) {
+          items.splice(i, 1);
+        }
+
+        localStorage.setItem("cartItems", JSON.stringify(items));
+        return;
       }
+    }
+
   }
 
   getItems(){
     let items: CartItem[] = [];
-    let bufItem: CartItem;
-    Object.keys(localStorage).forEach((key) => {
-      if(key != 'jwt'){
-        bufItem = new CartItem;
-        bufItem = JSON.parse(localStorage.getItem(key));
-        bufItem.id = parseInt(key);
-        items.push(bufItem);
-      }
-    });
+    let data: CartItem[];
+    data = JSON.parse(localStorage.getItem("cartItems"));
+    if (data) {
+      items = data;
+    }
+
     return items;
   }
 
   getTotalPrice(): number{
+    let items = this.getItems();
     let totalPrice: number = 0;
-    let data;
-    Object.keys(localStorage).forEach((key) => {
-      if(key != 'jwt'){
-        data = JSON.parse(localStorage.getItem(key));
-        totalPrice += data.price*data.amount;
-      }
+
+    items.forEach(item => {
+      totalPrice += item.price*item.amount;
     });
+
     return totalPrice;
   }
 
   clearCart(){
-    localStorage.clear();
+    localStorage.removeItem("cartItems");
     this.cartCounterSubject.next(this.counter=0);
     return;
   }
