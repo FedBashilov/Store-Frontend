@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { ShopPageComponent } from './pages/shop-page/shop-page.component';
-//import { ProductPageComponent } from './pages/product-page/product-page.component';
+import { ProductPageComponent } from './pages/product-page/product-page.component';
 import { AboutUsPageComponent } from './pages/about-us-page/about-us-page.component';
 import { ContactsPageComponent } from './pages/contacts-page/contacts-page.component';
 
@@ -13,7 +13,7 @@ const routes: Routes = [
     {path: 'shop',
       children: [
         {path: '', component: ShopPageComponent},
-    	 // {path: 'product/:id', component: ProductPageComponent},
+    	  {path: 'product/:id', component: ProductPageComponent},
     	]
     },
     {path: 'about-us', component: AboutUsPageComponent},
@@ -26,4 +26,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-export const routingComponents = [HomePageComponent, ShopPageComponent /*, ProductPageComponent*/, AboutUsPageComponent, ContactsPageComponent]
+export const routingComponents = [HomePageComponent, ShopPageComponent, ProductPageComponent, AboutUsPageComponent, ContactsPageComponent]

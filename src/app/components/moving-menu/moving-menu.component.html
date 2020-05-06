@@ -34,31 +34,37 @@
 </div>
 
 <div class="line-header">
-  <nav class="line-menu">
-    <a class="line_menu_item current" routerLink="/home">
-      Home
-    </a>
-    <a class="line_menu_item" routerLink="/shop">
-      Shop
-    </a>
-    <a class="line_menu_item" routerLink="/about-us">
-      About us
-    </a>
-    <a class="line_menu_item" routerLink="/contacts">
-      Contact us
-    </a>
-  </nav>
+  <div class="flexbox">
+    <nav class="line-menu">
+      <a class="line_menu_item current" routerLink="/home">
+        Главная
+      </a>
+      <a class="line_menu_item" routerLink="/shop">
+        Каталог
+      </a>
+      <a class="line_menu_item" routerLink="/about-us">
+        О нас
+      </a>
+      <a class="line_menu_item" routerLink="/contacts">
+        Контакты
+      </a>
+    </nav>
 
-  <div class="title_wrapper">
-    <div class="title notranslate">
-      <div class="main_title">
-        Timothy Woodpecker
-      </div>
-      <div class="subtitle">
-        handmade studio
-      </div>
+    <div class="icons">
+      <app-authorization></app-authorization>
+      <app-cart></app-cart>
     </div>
-    <app-authorization></app-authorization>
   </div>
 
+
+    <div class="title_wrapper">
+      <div class="title notranslate">
+        <div class="main_title">
+          Woodpecker
+        </div>
+        <div class="subtitle">
+          handmade studio
+        </div>
+      </div>
+    </div>
 </div>

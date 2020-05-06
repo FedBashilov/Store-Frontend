@@ -11,7 +11,7 @@ import { User } from '../models/user.model';
 
 export class AuthService {
 
-  public PHP_API_SERVER = "https://webstorebash.000webhostapp.com";
+  public PHP_API_SERVER = "http://localhost";
 
   constructor(private httpClient: HttpClient) {
   }

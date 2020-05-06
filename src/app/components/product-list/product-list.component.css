@@ -17,20 +17,26 @@
 	background-color: white;
 	border-radius: 15px 15px 0 0;
 	outline: none;
+	overflow: hidden;
+	padding-bottom: 50px;
 }
 .product_card:hover{
 	box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
+.router_wrapper{
+	cursor: pointer;
+	height: calc(100% + 50px);
+}
+
+
 .product_card_image{
 	height: 100%;
 	width: 100%;
-	border-radius: 15px 15px 0 0 ;
 }
 
 .product_card_content{
 	padding: 10px;
-	margin-bottom: 50px;
 }
 
 .row_flexbox{

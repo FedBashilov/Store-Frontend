@@ -16,10 +16,8 @@ export class ProductListComponent implements OnInit {
 	public allProductsId: number[] = [];
 	public allProducts: Product[] = [];
 
-	constructor(public apiService: ApiService, public cartService: CartService) { }
-
-	ngOnInit() {
-		this.apiService.getAllProductsId().subscribe( (allProductsId: number[]) => {
+	constructor(public apiService: ApiService, public cartService: CartService) {
+    this.apiService.getAllProductsId().subscribe( (allProductsId: number[]) => {
 	  		this.allProductsId = allProductsId;
 	  	  this.allProductsId.forEach( (productId)=>{
 	  			this.apiService.getProductById(productId).subscribe( (product: Product) => {
@@ -28,5 +26,10 @@ export class ProductListComponent implements OnInit {
 	  		});
   		});
   }
+
+	ngOnInit() {
+
+  }
+
 
 }

@@ -1,12 +1,9 @@
 .wrapper{
-  font-size: 14px;
   position: relative;
 }
 
 header{
   background: #FFF;
-  padding: 10px 30px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 

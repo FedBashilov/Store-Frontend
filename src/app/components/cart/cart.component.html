@@ -1,11 +1,13 @@
-<div class="cart_icon_wrapper" (click)="showOrHideOrderForm()">
-  <div class="cart_icon">
-    <img src="assets/cart.png" alt="" height="20px" width="20px">
+
+  <div class="cart_icon"  (click)="showOrHideOrderForm()">
+    <img src="assets/shopping-cart.svg" alt="" height="30px" width="30px">
     <div class="cart_counter">
-      {{this.cartCounter}}
+      <div class="digits">
+        {{this.cartCounter}}
+      </div>
     </div>
   </div>
-</div>
+
 
 <div class="moving_order_form">
   <div class="cart_list">

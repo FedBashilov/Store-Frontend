@@ -1,18 +1,23 @@
-<div class="product_name">
-	{{product.name}}
+<div class="header">
+
+	<div class="product_name">
+		{{product.name}}
+	</div>
+
+  <app-cart></app-cart>
 </div>
 
 <div class="flexbox">
-	<app-photo-slider [product]="product"></app-photo-slider>
+	<!-- <app-photo-slider [product]="product"></app-photo-slider> -->
+	<div class="image">
+		<img class="product_image"  [defaultImage]="'assets/loading.png'" [lazyLoad]='this.apiService.PHP_API_SERVER + "/backend/product-photos/" +product.photo' [debug]="true">
+	</div>
 	<div class="product_description">
-		<div>{{product.short_description}}</div>
 		<div>{{product.description}}</div>
 	</div>
 	<div>
-		<button>Cart</button>
-		<div class="available">
-			{{product.available}}
+		<div class="cart_button">
+			<button class="add_to_cart_button" type="button" name="button" (click)="this.cartService.addToCart(product.id, product.name, product.price);">Add to Cart</button>
 		</div>
 	</div>
 </div>
-

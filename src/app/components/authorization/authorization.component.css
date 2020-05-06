@@ -10,13 +10,7 @@
 }
 
 /*----login_icon_wrapper----*/
-.login_icon_wrapper, .logout_icon_wrapper{
-  height: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content:center;
-  align-items: center;
-}
+
 .login_icon, .logout_icon{
   cursor: pointer;
 }
@@ -24,14 +18,14 @@
 
 /*moving login form*/
 .moving_auth_window{
+  padding: 20px 30px;
   border: 1px solid black;
-  width: 500px;
   position: absolute;
   right: -100%;
   top: auto;
-  padding: 20px;
   z-index: 200;
-  transform: translateX(100%);
+  transform: scale(0);
+  transform-origin: top right;
   -webkit-transition-duration: 0.5s;
   -moz-transition-duration: 0.5s;
   -o-transition-duration: 0.5s;
@@ -40,7 +34,7 @@
   color: black;
 }
 .moving_auth_window.show{
-  transform: translateX(0%);
+  transform: scale(1);
 }
 
 
