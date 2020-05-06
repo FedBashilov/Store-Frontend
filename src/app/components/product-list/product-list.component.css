@@ -14,13 +14,19 @@
 
 	width: 500px;
 	position: relative;
-	margin: 60px 0px;
+	margin-bottom: 60px;
 }
 
 .product_name{
 	width: 100px;
 	position: relative;
 	top: 150px;
+	font-family: Podkova;
+	font-style: normal;
+	font-weight: 500;
+	font-size: 20px;
+	line-height: 25px;
+	color: #000000;
 }
 
 .add_to_cart_button{
