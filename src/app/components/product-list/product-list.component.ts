@@ -13,18 +13,12 @@ import { Product } from '../../models/product.model';
 })
 
 export class ProductListComponent implements OnInit {
-	public allProductsId: number[] = [];
 	public allProducts: Product[] = [];
 
 	constructor(public apiService: ApiService, public cartService: CartService) {
-    this.apiService.getAllProductsId().subscribe( (allProductsId: number[]) => {
-	  		this.allProductsId = allProductsId;
-	  	  this.allProductsId.forEach( (productId)=>{
-	  			this.apiService.getProductById(productId).subscribe( (product: Product) => {
-	  				this.allProducts.push(product);
-	  			});
-	  		});
-  		});
+    this.apiService.getAllProducts().subscribe( (allProducts: Product[]) => {
+      this.allProducts = allProducts;
+  	});
   }
 
 	ngOnInit() {

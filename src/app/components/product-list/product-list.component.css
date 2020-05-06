@@ -1,94 +1,69 @@
 .wrapper{
-	display: flex;
-	flex-direction: row;
+	display: grid;
+
+  grid-template-columns: repeat(auto-fill, 500px);
 	justify-content: center;
-	flex-wrap: wrap;
+	grid-gap: 20px;
+	margin: 20px;
 }
 
 .product_card{
-	cursor: default;
-	position: relative;
-	margin: 20px;
-	width: 270px;
-	-webkit-transition-duration: 0.3s;
-	-moz-transition-duration: 0.3s;
-	-o-transition-duration: 0.3s;
-	transition-duration: 0.3s;
-	background-color: white;
-	border-radius: 15px 15px 0 0;
-	outline: none;
-	overflow: hidden;
-	padding-bottom: 50px;
-}
-.product_card:hover{
-	box-shadow: 0 0 10px rgba(0,0,0,0.5);
-}
-
-.router_wrapper{
-	cursor: pointer;
-	height: calc(100% + 50px);
-}
-
-
-.product_card_image{
-	height: 100%;
-	width: 100%;
-}
-
-.product_card_content{
-	padding: 10px;
-}
-
-.row_flexbox{
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
-	margin: 5px 0;
-}
 
-.product_price{
-	font-size: 1.2em;
-	font-weight: bold;
+	width: 500px;
+	position: relative;
+	margin: 60px 0px;
 }
 
 .product_name{
-	font-size: 1.1em;
-}
-
-.product_description{
-	font-style: italic;
-	font-size: 1.0em;
-}
-
-.cart_button{
-	position: absolute;
-	bottom: 5px;
-	right: 20px;
+	width: 100px;
+	position: relative;
+	top: 150px;
 }
 
 .add_to_cart_button{
-	padding: 10px 20px;
-	text-align: center;
-	text-decoration: none;
-	display: inline-block;
-	-webkit-transition-duration: 0.2s; /* Safari */
-	-moz-transition-duration: 0.2s;
-	-o-transition-duration: 0.2s;
-	transition-duration: 0.2s;
-	background-color: #ffd56b;
-	border: 2px solid #ffcc4a;
-	color: black;
-	outline:none;
-	border-radius: 6px;
+	position: absolute;
+	bottom: 80px;
+
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	width: 280px;
+	height: 60px;
+	text-decoration:none;
+	outline: none;
+	border: none;
+	transform: translateX(-100%) scale(0.8);
 	cursor: pointer;
 }
-
-.add_to_cart_button:hover{
-	background-color: #ffcc4a;
-	transform: scale(1.05);
+.add_to_cart_button_text{
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: 600;
+	font-size: 22px;
+	line-height: 27px;
+	color: #000000;
+	text-transform: uppercase;
+	margin-right: 10px;
 }
-.add_to_cart_button:active{
-	background-color: #ffcc4a;
-	border: 1px solid #ffcc4a;
-	transform: scale(0.95);
+
+.product_price{
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: 500;
+	font-size: 25px;
+	line-height: 30px;
+	color: #000000;
+}
+
+.rub{
+	font-size: 14px;
+}
+
+
+.lemon{
+	background: #FFFDC5;
 }

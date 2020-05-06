@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&display=swap');
 
 @import url('https://fonts.googleapis.com/css2?family=Podkova&display=swap');
 
@@ -8,4 +8,5 @@ html, body { height: 100%; }
 body {
   margin: 0;
   font-family: 'Montserrat', sans-serif;
+
 }

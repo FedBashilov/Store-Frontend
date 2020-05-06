@@ -50,6 +50,10 @@
   height: 100px;
 
   transition: 0.5s;
+  border-bottom: 1px solid #C4C4C4;
+  position: fixed;
+  top: 0; left:0; right: 0;
+  background: #fff;
   z-index: 3;
 }
 .line-header.moved{
@@ -110,6 +114,10 @@
 
 app-cart{
   margin-left: 27px;
+}
+
+.margin-top{
+  height: 100px;
 }
 
 /*-------------------------------*/

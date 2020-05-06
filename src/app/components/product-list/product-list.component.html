@@ -1,25 +1,21 @@
 <div class="wrapper">
 	<div class="product_card" *ngFor="let product of allProducts; index as i;">
-		<div class="router_wrapper" [routerLink]="['product', product.id]">
-			<div class="image">
-				<img class="product_card_image" [defaultImage]="'assets/loading.png'" [lazyLoad]='this.apiService.PHP_API_SERVER+"/backend/product-photos/"+product.photo'>
+		<img class="product_card_image" width="350px" height="350px" [defaultImage]="'assets/loading.png'" [lazyLoad]='this.apiService.PHP_API_SERVER+"/backend/product-photos/"+product.photo' [routerLink]="['product', product.id]">
+			<div class="product_name">
+				{{product.name}}
 			</div>
-			<div class="product_card_content">
-				<div class="row_flexbox">
-					<div class="product_name notranslate">
-						{{product.name}}
-					</div>
-					<div class="product_price">
-						{{product.price}} $
-					</div>
-				</div>
-				<div class="product_description">
-					{{product.description}}
-				</div>
-			</div>
-		</div>
 		<div class="cart_button">
-			<button class="add_to_cart_button" type="button" name="button" (click)="this.cartService.addToCart(product.id, product.name, product.price);">Add to Cart</button>
+			<button class="add_to_cart_button lemon" type="button" name="button" (click)="this.cartService.addToCart(product.id, product.name, product.price);">
+				<div class="add_to_cart_button_text">
+					В корзину
+				</div>
+				<div >
+					<div class="product_price">
+						{{product.price}}<span class="rub">руб.</span>
+					</div>
+					<img src="assets/arrow.svg" alt="">
+				</div>
+			</button>
 		</div>
 	</div>
 </div>
