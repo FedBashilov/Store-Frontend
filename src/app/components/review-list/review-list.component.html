@@ -1,0 +1,42 @@
+<div class="new_review" *ngIf="!alreadyReviewed">
+	<div *ngIf="this.currentClient.id && productsBoughtByClient.includes(product_id); else needToBuyMessage">
+		<div class="new_review_form">
+			<textarea class="new_review_form_text" name="name" rows="5" cols="50" placeholder="Расскажите нам свои впечатления..."></textarea>
+			<div class="new_review_form_stars">
+				<img class="star" src="assets/star.svg" width="17px" height="17px" alt="" (click)="setStars(5)">
+				<img class="star" src="assets/star.svg" width="17px" height="17px" alt="" (click)="setStars(4)">
+				<img class="star" src="assets/star.svg" width="17px" height="17px" alt="" (click)="setStars(3)">
+				<img class="star" src="assets/star.svg" width="17px" height="17px" alt="" (click)="setStars(2)">
+				<img class="star" src="assets/star.svg" width="17px" height="17px" alt="" (click)="setStars(1)">
+			</div>
+		</div>
+		<div class="new_review_form_message">
+			{{newReviewFormMessage}}
+		</div>
+		<button class="create_button submit_button common_button lemon" type="button" name="button" (click)="onSubmit()">Оставить отзыв</button>
+	</div>
+	<ng-template #needToBuyMessage>
+		Чтобы оставить отзыв о товаре, необходимо его сначала приобрести.
+	</ng-template>
+</div>
+
+<div class="wrapper">
+	<div class="review_card" *ngFor="let review of allReviews; index as i;">
+		<div class="name_and_rating">
+      <span class="client_first_name">{{review.client.first_name}}</span>
+      <span class="stars" *ngFor='let i of arr(+review.rating).fill(1)'>
+        <img src="assets/star.svg" width="13px" height="13px" alt="">
+      </span>
+			<div class="buttons-bar" *ngIf="review.client.id == currentClient.id">
+				<img src="assets/edit.svg" alt="" (click)="editReview(review)">
+				<img src="assets/delete.svg" alt="" (click)="deleteReview(review.product_id)">
+			</div>
+		</div>
+    <div class="text">{{review.text}}
+		</div>
+    <div class="date">
+      {{review.modified}}
+    </div>
+
+	</div>
+</div>

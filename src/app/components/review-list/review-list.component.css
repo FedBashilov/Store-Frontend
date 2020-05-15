@@ -1,0 +1,130 @@
+.new_review{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.new_review_form{
+  position: relative;
+  border: 1px solid #C4C4C4;
+  padding: 20px 30px 50px;
+}
+
+.new_review_form_stars{
+  position: absolute;
+  bottom: 20px; left: 20px;
+}
+
+.new_review_form_text{
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  padding: 5px;
+  border: none;
+  overflow: auto;
+  outline: none;
+
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+
+  resize: none;
+
+}
+
+.new_review button{
+  float: right;
+  margin-top: 15px;
+}
+
+
+.new_review_form_stars{
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.star{
+  opacity: 0.4;
+  cursor: pointer;
+}
+
+.star:hover, .star:hover ~ .star{
+  opacity: 1;
+}
+
+.star.chosen{
+  opacity: 1;
+}
+
+
+.new_review_form_message{
+  position: absolute;
+
+  margin-top: 10px;
+  color: red;
+}
+
+.common_button{
+  font-size: 18px;
+  line-height: 24px;
+}
+
+
+.review_card{
+  padding: 30px 0;
+  border-bottom: 1px solid #E5E5E5;
+}
+
+.client_first_name{
+  font-family: Podkova;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 22px;
+
+  color: #000000;
+
+  margin-right: 50px;
+}
+
+.name_and_rating{
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.text{
+  font-family: Montserrat;
+  font-style: italic;
+  font-weight: normal;
+  font-size: 22px;
+  line-height: 25px;
+
+  color: #000000;
+  position: relative;
+  left: 25px;
+  max-width: 500px;
+  margin-bottom: 7px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.date{
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 15px;
+
+  color: #000000;
+}
+
+.buttons-bar{
+  position: absolute;
+  top: 0px; right: 10px;
+}
+
+.buttons-bar img{
+  margin-left: 10px;
+  cursor: pointer;
+}

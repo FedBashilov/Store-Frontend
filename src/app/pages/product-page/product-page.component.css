@@ -1,52 +1,100 @@
-.header{
+.wrapper{
+  margin: 30px 60px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  color: white;
-  background-color: #3d3938;
-  box-shadow: 0 0 5px #3d3938;
-  position: sticky;
-  top: 0;
-  width: 100%;
-  z-index: 100;
-  text-align: center;
-  height: 50px;
 }
 
-.title{
-  font-size: 2em;
-  font-style: italic;
-  font-weight: 400;
-  text-align: center;
-  padding: 5px 10px;
-  cursor: default;
-}
-
-app-cart{
-  float: right;
-  height: inherit;
-}
-
-@media all and (max-width: 840px){
-  .title{
-    margin-left: 40px;
-  }
+.product_info{
+  margin-top: 20px;
+  max-width: 500px;
 }
 
 .product_name{
-	text-align: center;
-	font-size: 1.5em;
-	padding: 15px;
-}
-
-.flexbox{
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: center;
-  margin: 20px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 50px;
+  line-height: 64px;
+  color: #000000;
+  text-transform: uppercase;
+  margin-bottom: 30px;
 }
 
 .product_description{
-	margin: 0 15px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 200;
+  font-size: 20px;
+  line-height: 28px;
+  color: #000000;
+  margin-bottom: 40px;
+}
+
+.flexbox{
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20px;
+}
+
+.product_price{
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 30px;
+  margin-right: 160px;
+}
+
+.add_to_cart_button{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+	width: 270px;
+	height: 50px;
+	text-decoration:none;
+	outline: none;
+	border: none;
+	cursor: pointer;
+}
+.add_to_cart_button_text{
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: 600;
+	font-size: 17px;
+	line-height: 20px;
+	color: #000000;
+	text-transform: uppercase;
+	margin-right: 8px;
+}
+.add_to_cart_button img{
+  display: block;
+}
+
+.lemon{
+	background: #FFFDC5;
+}
+
+
+/* reviews */
+.reviews_title{
+  display: inline-block;
+  position: relative;
+  left: 60px; top: 1px;
+  border: 1px solid #000000;
+  padding: 14px 17px 13px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 19px;
+  line-height: 24px;
+  text-transform: uppercase;
+
+  color: #000000;
+}
+
+.reviews{
+  border-top: 1px solid #000000;
+  padding: 60px 120px;
 }

@@ -1,3 +1,4 @@
+
 /*section to_catalog */
 .to_catalog{
 	position: relative;
@@ -20,19 +21,19 @@
 	font-family: Podkova;
 	font-style: normal;
 	font-weight: normal;
-	font-size: 44px;
-	line-height: 47px;
+	font-size: 33px;
+	line-height: 37px;
 	text-align: center;
 	color: #FFFFFF;
 
-	margin-bottom: 22px;
+	margin-bottom: 18px;
 }
 .link-button{
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	width: 280px;
-	height: 60px;
+	width: 200px;
+	height: 45px;
 	text-decoration:none;
 	outline: none;
 }
@@ -40,8 +41,8 @@
 	font-family: Montserrat;
 	font-style: normal;
 	font-weight: 600;
-	font-size: 22px;
-	line-height: 27px;
+	font-size: 18px;
+	line-height: 22px;
 	color: #000000;
 
 	text-transform: uppercase;
@@ -54,14 +55,14 @@
 
 	display: flex;
 	flex-direction: row;
-	margin-top: 100px;
-	margin-left: 4%;
-	margin-bottom: 100px;
+	margin-top: 75px;
+	margin-left: 3%;
+	margin-bottom: 75px;
 }
 
 .to_about_us .content{
-	margin-top: 100px;
-	margin-left: 40px;
+	margin-top: 75px;
+	margin-left: 33px;
 }
 
 .to_about_us .content_title{
@@ -69,23 +70,18 @@
 	font-family: Montserrat;
 	font-style: normal;
 	font-weight: 600;
-	font-size: 30px;
-	line-height: 40px;
+	font-size: 24px;
+	line-height: 30px;
 }
 
 .to_about_us .text{
-	margin-top: 56px;
-	width: 540px;
+	margin-top: 45px;
+	width: 450px;
 }
 
 .to_about_us .link-button{
 	position: absolute;
 	left: 50%;
 	transform: translateX(-50%);
-	margin-top: 25px;
-}
-
-
-.lemon{
-	background: #FFFDC5;
+	margin-top: 20px;
 }

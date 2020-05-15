@@ -1,69 +1,71 @@
-<div class="logout_icon_wrapper" *ngIf="isLoggedin; else loginIcon" >
-  <div class="user_name">
-    {{this.user.first_name}}
+<div class="client_icon_wrapper" *ngIf="this.currentClient.id; else loginIcon" >
+  <div class="client_name">
+    {{this.currentClient.first_name}}
   </div>
-  <img class="logout_icon" src="assets/logout.svg" alt="" height="30px" width="30px" (click)="logout()">
+  <app-client-account></app-client-account>
 </div>
 
 <ng-template #loginIcon>
   <div class="login_icon_wrapper">
-    <img class="login_icon" src="assets/log-in.svg" alt="" height="30px" width="30px" (click)="showOrHideForm()">
+    <img class="login_icon" src="assets/log-in.svg" alt="" height="23px" width="23px" (click)="showOrHideForm()">
   </div>
 </ng-template>
 
 
 <div class="moving_auth_window">
   <div class="wrapper_login_form" *ngIf="isRegistered; else registration">
+
     <form class="login_form" [formGroup]="loginForm" (ngSubmit)="onSubmitLogin()">
       <div class="form_title">
-        Fill out the login form
+        Вход
       </div>
       <div class="form_element">
         <mat-form-field>
           <input matInput type="text" formControlName="email" placeholder = "Email">
         </mat-form-field>
         <div class="error" *ngIf="isControlInvalid('email', this.loginForm)">
-          The email must consist only of English letters
+          Введите корректный email
         </div>
       </div>
       <div class="form_element">
         <mat-form-field>
-          <input matInput type="password" formControlName="password" placeholder = "Password">
+          <input matInput type="password" formControlName="password" placeholder = "Пароль">
         </mat-form-field>
         <div class="error" *ngIf="isControlInvalid('password', this.loginForm)">
-          A password must have at least 8 characters
+          Пароль должен содержать не меньше 8 символов
         </div>
       </div>
       <div class="response_error">
         {{loginErrorMessage}}
       </div>
-      <button class="login_button" type="submit">Login</button>
+      <button class="common_button lemon" type="submit">Войти</button>
     </form>
     <div class="go_to_registration">
-      Don't have an account yet
-      <span class="form_link" (click)="isRegistered = !isRegistered">Register here!</span>
+      Еще нет аккаунта?
+      <span class="form_link" (click)="isRegistered = !isRegistered">Регистрация</span>
     </div>
+
   </div>
 
   <ng-template #registration>
     <form class="registration_form" [formGroup]="registrationForm" (ngSubmit)="onSubmitRegistration()">
       <div class="form_title">
-        Fill out the registration form
+        Регистрация
       </div>
       <div class="form_element">
         <mat-form-field>
-          <input matInput type="text" formControlName="first_name" placeholder = "First name">
+          <input matInput type="text" formControlName="first_name" placeholder = "Имя">
         </mat-form-field>
         <div class="error" *ngIf="isControlInvalid('first_name', this.registrationForm)">
-          The first name must consist only of English letters and at least 2 characters
+          Имя должно содержать минимум 2 символа
         </div>
       </div>
       <div class="form_element">
         <mat-form-field>
-          <input matInput type="text" formControlName="last_name" placeholder = "Last name">
+          <input matInput type="text" formControlName="last_name" placeholder = "Фамилия">
         </mat-form-field>
         <div class="error" *ngIf="isControlInvalid('last_name', this.registrationForm)">
-          The last name must consist only of English letters and at least 2 characters
+          Фамилия должна содержать минимум 2 символа
         </div>
       </div>
       <div class="form_element">
@@ -71,22 +73,33 @@
           <input matInput type="text" formControlName="email" placeholder = "Email">
         </mat-form-field>
         <div class="error" *ngIf="isControlInvalid('email', this.registrationForm)">
-          The email must consist only of English letters
+          Введите корректный email
         </div>
       </div>
       <div class="form_element">
         <mat-form-field>
-          <input matInput type="password" formControlName="password" placeholder = "Password">
+          <input matInput type="tel" formControlName="phone" placeholder = "Телефон">
         </mat-form-field>
-        <div class="error" *ngIf="isControlInvalid('password', this.registrationForm)">
-          A password must have at least 8 characters
+        <div class="error" *ngIf="isControlInvalid('phone', this.registrationForm)">
+          Введите корректный номер телефона
         </div>
       </div>
-      <button class="registration_button" type="submit">Register</button>
+      <div class="form_element">
+        <mat-form-field>
+          <input matInput type="password" formControlName="password" placeholder = "Пароль">
+        </mat-form-field>
+        <div class="error" *ngIf="isControlInvalid('password', this.registrationForm)">
+          Пароль должен содержать не меньше 8 символов
+        </div>
+      </div>
+      <div class="response_error">
+        {{registrationErrorMessage}}
+      </div>
+      <button class="common_button lemon" type="submit">Зарегистрироваться</button>
     </form>
     <div class="go_to_login">
-      Already have account?
-      <span class="form_link"  (click)="isRegistered = !isRegistered">Login here!</span>
+      Уже есть аккаунт?
+      <span class="form_link"  (click)="isRegistered = !isRegistered">Войти</span>
     </div>
 
   </ng-template>

@@ -1,0 +1,52 @@
+<img class="client_icon" src="assets/user.svg" alt="" height="23px" width="23px" (click)="showOrHideForm()">
+
+<div class="moving_auth_window">
+  <form class="account_form" [formGroup]="accountForm" (ngSubmit)="onSubmit()">
+    <img class="logout_icon" src="assets/edit.svg" alt="" (click)="logout()">
+    <div class="form_title">
+      Аккаунт
+    </div>
+    <div class="form_element email">
+      <mat-form-field>
+        <input matInput type="text" formControlName="email" placeholder = "Email" readonly="true">
+      </mat-form-field>
+    </div>
+    <div class="form_element">
+      <div class="input_edit">
+        <mat-form-field>
+          <input matInput type="text" formControlName="first_name" placeholder = "Имя">
+        </mat-form-field>
+        <img src="assets/edit.svg" width="8px" alt="">
+      </div>
+      <div class="error" *ngIf="isControlInvalid('first_name', this.accountForm)">
+        Имя должно содержать минимум 2 символа
+      </div>
+    </div>
+    <div class="form_element">
+      <div class="input_edit">
+        <mat-form-field>
+          <input matInput type="text" formControlName="last_name" placeholder = "Фамилия">
+        </mat-form-field>
+        <img src="assets/edit.svg" width="8px" alt="">
+      </div>
+      <div class="error" *ngIf="isControlInvalid('last_name', this.accountForm)">
+        Фамилия должна содержать минимум 2 символа
+      </div>
+    </div>
+    <div class="form_element">
+      <div class="input_edit">
+        <mat-form-field>
+          <input matInput type="tel" formControlName="phone" placeholder = "Телефон">
+        </mat-form-field>
+        <img src="assets/edit.svg" width="8px" alt="">
+      </div>
+      <div class="error" *ngIf="isControlInvalid('phone', this.accountForm)">
+        Введите корректный номер телефона
+      </div>
+    </div>
+    <div class="response_error">
+      {{accountErrorMessage}}
+    </div>
+    <button class="common_button lemon" type="submit">Сохранить</button>
+  </form>
+</div>

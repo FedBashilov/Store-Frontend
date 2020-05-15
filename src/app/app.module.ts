@@ -18,6 +18,9 @@ import { CartComponent } from './components/cart/cart.component';
 import { SuccessfulOrderDialogComponent } from './components/successful-order-dialog/successful-order-dialog.component';
 import { MovingMenuComponent } from './components/moving-menu/moving-menu.component';
 import { AuthorizationComponent } from './components/authorization/authorization.component';
+import { CartPageComponent } from './pages/cart-page/cart-page.component';
+import { ReviewListComponent } from './components/review-list/review-list.component';
+import { ClientAccountComponent } from './components/client-account/client-account.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,10 @@ import { AuthorizationComponent } from './components/authorization/authorization
     CartComponent,
     SuccessfulOrderDialogComponent,
     MovingMenuComponent,
-    AuthorizationComponent
+    AuthorizationComponent,
+    CartPageComponent,
+    ReviewListComponent,
+    ClientAccountComponent
   ],
   imports: [
     BrowserModule,

@@ -1,15 +1,15 @@
 <div class="wrapper">
 	<div class="product_card" *ngFor="let product of allProducts; index as i;">
-		<img class="product_card_image" width="350px" height="350px" [defaultImage]="'assets/loading.png'" [lazyLoad]='this.apiService.PHP_API_SERVER+"/backend/product-photos/"+product.photo' [routerLink]="['product', product.id]">
+		<img class="product_card_image" width="300px" height="300px" [defaultImage]="'assets/loading.png'" [lazyLoad]='this.apiService.PHP_API_SERVER+"/backend/product-photos/"+product.photo' [routerLink]="['product', product.id]">
 			<div class="product_name">
 				{{product.name}}
 			</div>
 		<div class="cart_button">
-			<button class="add_to_cart_button lemon" type="button" name="button" (click)="this.cartService.addToCart(product.id, product.name, product.price);">
+			<button class="add_to_cart_button lemon" type="button" name="button" (click)="this.cartService.addToCart(product);">
 				<div class="add_to_cart_button_text">
 					В корзину
 				</div>
-				<div >
+				<div>
 					<div class="product_price">
 						{{product.price}}<span class="rub">руб.</span>
 					</div>

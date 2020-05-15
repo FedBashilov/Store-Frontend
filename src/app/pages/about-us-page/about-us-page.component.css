@@ -1,36 +1,40 @@
-img {
-  display: block;
-}
-
-.back_photo{
-  position: relative;
-  opacity: 0.6;
-}
-.back_photo::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0,0,0,0.5);
-  z-index: 1;
-}
-
-.content_autobiography{
+section{
   display: flex;
   flex-direction: row;
-  position: absolute;
-  left: 25%; top: 45%;
-  transform: translateX(-25%);
+  justify-content: space-around;
+  align-items: center;
+  margin: 150px 20px;
 }
 
-.photo_wrapper{
-  margin-right: 10px;
+.section_text{
+  width: 40%;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 27px;
+  letter-spacing: 0.015em;
+
+  color: #000000;
 }
 
-.content_text{
-  color: #FFF;
-  font-weight: bold;
-  font-size: 1em;
+.section_title{
+  text-align: center;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 33px;
+  line-height: 41px;
+
+  color: #000000;
+}
+
+.subtitle{
+  font-weight: 600;
+}
+
+
+.section_photo{
+  width: 30%;
+  height: auto;
 }

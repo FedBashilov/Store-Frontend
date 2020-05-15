@@ -1,6 +1,77 @@
-.section_vk, .section_mail{
+.info_wrapper{
+  position: absolute;
+  top: 10%; right: 0;
+  background: rgba(0, 0, 0, 0.57);
   display: flex;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: space-around;
   align-items: center;
-  padding: 20px 0;
+  color: #FFFFFF;
+  padding: 40px 60px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.flexbox{
+  display: flex;
+  flex-direction: row;
+}
+
+section{
+  margin: 0 40px;
+}
+
+.big_section_title{
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 25px;
+  line-height: 40px;
+}
+
+.contact, .time{
+  margin: 40px 0px;
+}
+
+.contact_name, .clock{
+  font-family: Podkova;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 19px;
+  line-height: 22px;
+}
+
+.contact_body{
+  font-family: Podkova;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 19px;
+  line-height: 22px;
+}
+
+.section_title{
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 31px;
+}
+
+.days{
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 9px;
+  line-height: 13px;
+}
+
+.address{
+  font-family: Podkova;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 17px;
+  line-height: 20px;
+  text-transform: none;
+  margin-top: 10px;
+  margin-bottom: 20px;
 }

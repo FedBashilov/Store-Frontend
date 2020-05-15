@@ -1,0 +1,155 @@
+.wrapper{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: relative;
+}
+
+.cart{
+  padding: 30px;
+  width: calc(100% - 450px);
+}
+
+.title{
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 42px;
+  line-height: 53px;
+  color: #000000;
+}
+
+.order_form{
+  position: fixed;
+  right: 0;
+  top: 70px; bottom: 0;
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 400px;
+}
+
+.form_title{
+  font-family: Podkova;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 48px;
+  color: #000000;
+  margin-bottom: 60px;
+}
+
+.address_label{
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 20px;
+  color: #000000;
+  margin-bottom: 20px;
+}
+
+.address{
+  border: none;
+  background: inherit;
+  border-bottom: 1px solid #000000;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  width: 300px;
+}
+
+.address:focus{
+  outline: none;
+}
+
+.form_elems{
+  margin: 30px 0;
+}
+
+.form_elem_checkbox{
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  color: #000000;
+  margin-bottom: 10px;
+}
+
+.common_button{
+  position: absolute;
+  bottom: 20px;
+  border: 1px solid #000000;
+  display: flex;
+  align-items: center;
+}
+
+.common_button img{
+  margin-left: 5px;
+  width: 70px;
+}
+
+.list_header, .product{
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  margin-top: 40px;
+}
+
+.product_price, .product_quentity, .product_total{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.wrapper_total{
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid black;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+}
+
+
+.minus_button:hover{
+  background: #ff9e7c;
+}
+.plus_button:hover{
+  background: #9cff70;
+}
+
+.minus_button:active{
+  transform: scale(0.8);
+  background: #ff9e7c;
+}
+
+.plus_button:active{
+  transform: scale(0.8);
+  background: #9cff70;
+}
+
+
+.plus_button, .minus_button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  width: 20px; height: 20px;
+  border-radius: 10px;
+  margin: 0 5px;
+
+  transition: 0.2s;
+  cursor: pointer;
+  outline: none;
+  background: none;
+}
+
+.cart_is_empty{
+  margin-top: 40px;
+}
+
+.address_error_message{
+  display: none;
+  color: red;
+}

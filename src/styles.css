@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&display=swap');
 
 @import url('https://fonts.googleapis.com/css2?family=Podkova:wght@400;500;600;700;800&display=swap');
 
@@ -9,4 +9,23 @@ body {
   margin: 0;
   font-family: 'Montserrat', sans-serif;
 
+}
+
+
+.common_button{
+  cursor: pointer;
+  text-decoration: none;
+  border: none;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 27px;
+  color: #000000;
+
+  padding: 13px 33px;
+}
+
+.lemon{
+	background: #FFFDC5;
 }

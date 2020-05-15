@@ -1,41 +1,43 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Subscription } from "rxjs";
 
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
+import { ClientAccountComponent } from '../client-account/client-account.component';
+
 import { AuthService } from '../../services/auth.service';
 import { ApiService } from '../../services/api.service';
-import { User } from '../../models/user.model';
+import { Client } from '../../models/client.model';
 
 @Component({
   selector: 'app-authorization',
   templateUrl: './authorization.component.html',
   styleUrls: ['./authorization.component.css']
 })
-export class AuthorizationComponent implements OnInit {
+export class AuthorizationComponent implements OnInit, OnDestroy {
 
-  public isLoggedin: boolean = false;
   public isRegistered: boolean = true;
   loginForm: FormGroup;
   loginErrorMessage: string = "";
+  registrationErrorMessage: string = "";
   registrationForm: FormGroup;
-  public user: User = new User();
 
-  constructor(private authService: AuthService, private apiService: ApiService, private fb: FormBuilder) { }
+  private subscriptionClient: Subscription;
+  public currentClient: Client = new Client;
+
+  constructor(private authService: AuthService, private apiService: ApiService, private fb: FormBuilder) {
+      this.subscriptionClient = this.authService.currentClient.subscribe(currentClient => { this.currentClient = currentClient; });
+  }
 
   ngOnInit(): void {
     this.initForms();
-    this.isLoggedin = this.authService.getJWT() ? true : false;
-    this.setUser();
   }
 
-  setUser(){
-    let jwt = this.authService.getJWT();
-    if( jwt ){
-      this.apiService.getUserInfo(jwt).subscribe( (response)=>{
-        this.user = response;
-      });
-    }
+
+  ngOnDestroy(){
+    this.subscriptionClient.unsubscribe();
   }
+
 
   initForms(){
     this.loginForm = this.fb.group({
@@ -67,6 +69,11 @@ export class AuthorizationComponent implements OnInit {
         Validators.email
       ]
     ],
+    phone: ['', [
+      Validators.required,
+      Validators.pattern("^\\+?[0-9]*$")
+      ]
+    ],
       password: ['', [
         Validators.required,
         Validators.minLength(8)
@@ -89,13 +96,10 @@ export class AuthorizationComponent implements OnInit {
       return;
     }
 
-    //do request
     this.authService.login(this.loginForm.value.email, this.loginForm.value.password).subscribe( (response: any) =>{
       if(response.jwt){
-        this.authService.setJWT(response.jwt);
+        this.authService.setCurrentClient(response.jwt);
         this.showOrHideForm();
-        this.isLoggedin = this.authService.getJWT() ? true : false;
-        this.setUser();
         this.loginErrorMessage = "";
       } else {
         this.loginErrorMessage = response;
@@ -111,19 +115,22 @@ export class AuthorizationComponent implements OnInit {
        .forEach(controlName => controls[controlName].markAsTouched());
       return;
     }
-    let newUser: User = new User(
+    let newClient: Client = new Client(
       this.registrationForm.value.first_name,
       this.registrationForm.value.last_name,
       this.registrationForm.value.email,
+      this.registrationForm.value.phone,
       this.registrationForm.value.password
     );
-    //do request
-    this.authService.registration(newUser).subscribe( (response: string) =>{
-      this.authService.setJWT(response);
-      this.showOrHideForm();
-      this.loginErrorMessage = "";
-      this.isLoggedin = this.authService.getJWT() ? true : false;
-      this.setUser();
+
+    this.authService.registration(newClient).subscribe( (response: any) =>{
+      if(response.jwt){
+        this.authService.setCurrentClient(response.jwt);
+        this.showOrHideForm();
+        this.registrationErrorMessage = "";
+      } else {
+        this.registrationErrorMessage = response;
+      }
     });
   }
 
@@ -143,8 +150,5 @@ export class AuthorizationComponent implements OnInit {
     }
   }
 
-  logout(){
-    this.authService.deleteJWT();
-    this.isLoggedin = this.authService.getJWT() ? true : false;
-  }
+
 }

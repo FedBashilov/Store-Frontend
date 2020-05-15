@@ -1,23 +1,31 @@
-<div class="header">
-
-	<div class="product_name">
-		{{product.name}}
+<div class="wrapper">
+	<div class="product_info">
+		<div class="product_name">
+			{{product.name}}
+		</div>
+		<div class="product_description">
+			<div>{{product.description}}</div>
+		</div>
+		<div class="flexbox">
+			<div class="product_price">
+				{{product.price}}руб.
+			</div>
+			<div class="product_counter">
+				- 1 +
+			</div>
+		</div>
+		<button class="add_to_cart_button lemon" type="button" name="button" (click)="this.cartService.addToCart(product);">
+			<div class="add_to_cart_button_text">
+				В корзину
+			</div>
+			<img src="assets/arrow.svg" width="80px" alt="">
+		</button>
 	</div>
 
-  <app-cart></app-cart>
+	<img class="product_image" width="500px" height="auto"  [defaultImage]="'assets/loading.png'" [lazyLoad]='this.apiService.PHP_API_SERVER + "/backend/product-photos/" +product.photo'>
 </div>
 
-<div class="flexbox">
-	<!-- <app-photo-slider [product]="product"></app-photo-slider> -->
-	<div class="image">
-		<img class="product_image"  [defaultImage]="'assets/loading.png'" [lazyLoad]='this.apiService.PHP_API_SERVER + "/backend/product-photos/" +product.photo' [debug]="true">
-	</div>
-	<div class="product_description">
-		<div>{{product.description}}</div>
-	</div>
-	<div>
-		<div class="cart_button">
-			<button class="add_to_cart_button" type="button" name="button" (click)="this.cartService.addToCart(product.id, product.name, product.price);">Add to Cart</button>
-		</div>
-	</div>
+<div class="reviews_title">Отзывы</div>
+<div class="reviews">
+	<app-review-list></app-review-list>
 </div>

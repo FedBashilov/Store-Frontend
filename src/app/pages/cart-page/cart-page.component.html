@@ -1,0 +1,98 @@
+<div class="wrapper">
+
+  <div class="cart">
+    <span class="title">Корзина</span>
+    <div class="cart_list">
+      <div class="list_header">
+        <div>
+          Товар
+        </div>
+        <div>
+          Цена
+        </div>
+        <div>
+          Количество
+        </div>
+        <div>
+          Сумма
+        </div>
+      </div>
+      <div class="product" *ngFor="let product of products; index as i;">
+        <div class="image_and_name">
+          <img class="product_card_image" width="150px" height="150px"
+            [defaultImage]="'assets/loading.png'"
+            [lazyLoad]='this.apiService.PHP_API_SERVER+"/backend/product-photos/"+product.photo'
+            [routerLink]="['product', product.id]">
+          <div class="product_name">
+            {{product.name}}
+          </div>
+        </div>
+        <div class="product_price">
+          {{product.price}}руб.
+        </div>
+        <div class="product_quentity">
+            <button class="minus_button" type="button" name="minus_product"
+              (click)="minusProduct(product)">
+            -</button>
+          {{product.amount}}
+            <button class="plus_button" type="button" name="plus_product"
+              (click)="plusProduct(product)">
+            +</button>
+        </div>
+        <div class="product_total">
+          {{product.price * product.amount}}руб.
+        </div>
+      </div>
+      <div class="wrapper_total" *ngIf="this.products.length > 0; else emptyCart">
+        <div class="total">
+          Итого:
+        </div>
+        <div class="total_price">
+          {{totalPrice}}руб.
+        </div>
+      </div>
+      <ng-template  #emptyCart>
+        <div class="cart_is_empty">Корзина пуста :(</div>
+      </ng-template>
+    </div>
+  </div>
+
+  <div class="order_form lemon">
+    <div class="form_title">
+      Форма заказа
+    </div>
+    <div *ngIf="this.currentClient.id; else needToLogin">
+      <div *ngIf="this.cartCounter > 0; else emptyForm">
+        <div class="form_elem_address">
+          <span class="address_label">Адрес доставки<br></span>
+          <input class="address" type="text" name="address" value="">
+          <div class="address_error_message">
+            Необходимо ввести адрес доставки!
+          </div>
+        </div>
+        <div class="form_elems">
+          <div class="form_elem_checkbox">
+            <input type="checkbox" color="primary" value="true" checked="true" disabled = "true">
+            Я согласен на обработку персональных данных
+          </div>
+          <div class="form_elem_checkbox">
+            <input type="checkbox" color="primary" value="true" checked="true" disabled = "true">
+            Я согласен на то, что мне в ближайшее время позвонят на номер {{currentClient.phone}} для подтверждения заказа.
+          </div>
+        </div>
+        <button class="common_button lemon" type="button" name="button" (click)="onSubmit()">
+          Оформить заказ
+          <img src="assets/arrow.svg" alt="">
+        </button>
+      </div>
+      <ng-template #emptyForm>
+        Чтобы оформить заказ, добавьте товары в корзину.
+      </ng-template>
+    </div>
+    <ng-template #needToLogin>
+      Чтобы оформить заказ, войдите в аккаунт.
+    </ng-template>
+
+  </div>
+
+</div>

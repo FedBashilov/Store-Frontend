@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, BehaviorSubject } from 'rxjs';
 
 import { CartItem } from '../models/cart-item.model';
+import { Product } from '../models/product.model';
 
 @Injectable({
   providedIn: 'root'
@@ -22,20 +23,20 @@ export class CartService {
     return this.counter;
   }
 
-  addToCart(id, name, price){
+  addToCart(product: Product){
     this.cartCounterSubject.next(++this.counter);
 
     let items = this.getItems();
 
     for (let i = 0; i < items.length; i++) {
-      if (items[i].id == id) {
+      if (items[i].id == product.id) {
         items[i].amount++;
         localStorage.setItem("cartItems", JSON.stringify(items));
         return;
       }
     }
 
-    items.push( new CartItem(id, name, price, 1));
+    items.push( new CartItem(product, 1) );
     localStorage.setItem("cartItems", JSON.stringify(items));
   }
 
