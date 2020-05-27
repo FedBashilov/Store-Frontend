@@ -116,4 +116,9 @@ input.ng-touched.ng-invalid{
     width: 15px;
     height: auto;
   }
+
+  .moving_auth_window{
+    width: 200px;
+
+  }
 }
