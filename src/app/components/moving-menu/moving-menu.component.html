@@ -1,23 +1,26 @@
+<div class="curtain off" (click)="showOrHideMenu()">
+</div>
+
 <div class="moving_menu">
   <nav class="menu_list">
     <div class="menu_item_wrapper">
       <a class="menu_item" routerLink="/home" (click)="showOrHideMenu()">
-        Home
+        Главная
       </a>
     </div>
     <div class="menu_item_wrapper">
       <a class="menu_item" routerLink="/shop" (click)="showOrHideMenu()">
-        Shop
+        Каталог
       </a>
     </div>
     <div class="menu_item_wrapper">
       <a class="menu_item" routerLink="/about-us" (click)="showOrHideMenu()">
-        About us
+        О нас
       </a>
     </div>
     <div class="menu_item_wrapper">
       <a class="menu_item" routerLink="/contacts" (click)="showOrHideMenu()">
-        Contact us
+        Контакты
       </a>
     </div>
   </nav>
@@ -29,10 +32,6 @@
     </div>
   </div>
 </div>
-
-<div class="curtain off" (click)="showOrHideMenu()">
-</div>
-
 
 <div class="line-header">
   <div class="flexbox">
@@ -50,7 +49,6 @@
         Контакты
       </a>
     </nav>
-
     <div class="icons">
       <app-authorization></app-authorization>
       <app-cart></app-cart>

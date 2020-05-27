@@ -75,3 +75,34 @@ section{
   margin-top: 10px;
   margin-bottom: 20px;
 }
+
+.background{
+  content: url("src/assets/contacts-background.jpg");
+}
+
+@media all and (max-width: 1000px) {
+  .background{
+    content: url("src/assets/contacts-background_mobile.jpg");
+  }
+
+  .info_wrapper{
+    position: absolute;
+    left: 0; right: 0; top: 0;
+    background: none;
+    padding: 10px 15px;
+    flex-direction: column;
+  }
+  .flexbox{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .contact, .time{
+    margin: 20px 0px;
+  }
+
+  .contact_us, .service_time, .pick-up_point{
+    margin-bottom: 40px;
+  }
+}

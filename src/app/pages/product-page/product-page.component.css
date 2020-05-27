@@ -1,5 +1,11 @@
+.wrapper_flexbox{
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+
 .wrapper{
-  margin: 30px 60px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -7,6 +13,7 @@
 
 .product_info{
   margin-top: 20px;
+  margin-right: 2%;
   max-width: 500px;
 }
 
@@ -96,5 +103,38 @@
 
 .reviews{
   border-top: 1px solid #000000;
-  padding: 60px 120px;
+  padding: 60px 5%;
+}
+
+
+
+@media all and (max-width: 800px) {
+	.wrapper{
+		transform: scale(0.8) translateY(-10%);
+    margin-bottom: -10%;
+	}
+  .reviews_title{
+    transform: scale(0.8) translateY(12%);
+  }
+
+}
+
+@media all and (max-width: 670px) {
+	.wrapper{
+		transform: scale(0.6) translateY(-20%);
+    margin-bottom: -20%;
+	}
+
+  .reviews_title{
+    transform: scale(0.6) translateY(31%);
+  }
+
+
+}
+
+@media all and (max-width: 500px) {
+	.wrapper{
+		transform: scale(0.4) translateY(-60%);
+    margin-bottom: -60%;
+	}
 }

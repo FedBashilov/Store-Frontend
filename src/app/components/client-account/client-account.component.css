@@ -109,3 +109,11 @@ input.ng-touched.ng-invalid{
   visibility: visible;
   opacity: 0.5;
 }
+
+
+@media all and (max-width: 500px) {
+  .client_icon{
+    width: 15px;
+    height: auto;
+  }
+}

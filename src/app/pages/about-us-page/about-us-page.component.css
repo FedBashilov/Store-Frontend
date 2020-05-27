@@ -16,6 +16,7 @@ section{
   letter-spacing: 0.015em;
 
   color: #000000;
+  z-index: 2;
 }
 
 .section_title{
@@ -35,6 +36,59 @@ section{
 
 
 .section_photo{
-  width: 30%;
+  width: 30vw;
   height: auto;
+  z-index: 1;
+}
+
+.our_team{
+  margin-top: 20px;
+}
+
+@media all and (max-width: 800px) {
+  .our_team{
+    margin-top: 0px;
+  }
+
+  .section_text{
+    position: absolute;
+    color: black;
+    width: 90vw;
+    padding: 10px;
+    color: #fff;
+    font-size: 16px;
+    line-height: 20px;
+  }
+  .section_title{
+    color: #fff;
+    font-size: 27px;
+    line-height: 35px;
+  }
+
+	.section_photo{
+    position: relative;
+		width: 100vw;
+	}
+
+  .curtain {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,.4);
+  }
+
+  section{
+    margin: -10px 0;
+  }
+}
+
+@media all and (max-width: 500px) {
+  .section_text{
+    position: absolute;
+    font-size: 11px;
+    line-height: 18px;
+  }
+  .section_title{
+    font-size: 18px;
+    line-height: 25px;
+  }
 }

@@ -1,29 +1,29 @@
-<div class="wrapper">
-	<div class="product_info">
-		<div class="product_name">
-			{{product.name}}
-		</div>
-		<div class="product_description">
-			<div>{{product.description}}</div>
-		</div>
-		<div class="flexbox">
-			<div class="product_price">
-				{{product.price}}руб.
+<div class="wrapper_flexbox">
+	<div class="wrapper">
+		<div class="product_info">
+			<div class="product_name">
+				{{product.name}}
 			</div>
-			<div class="product_counter">
-				- 1 +
+			<div class="product_description">
+				<div>{{product.description}}</div>
 			</div>
+			<div class="flexbox">
+				<div class="product_price">
+					{{product.price}}руб.
+				</div>
+			</div>
+			<button class="add_to_cart_button lemon" type="button" name="button" (click)="this.cartService.addToCart(product);">
+				<div class="add_to_cart_button_text">
+					В корзину
+				</div>
+				<img src="assets/arrow.svg" width="80px" alt="">
+			</button>
 		</div>
-		<button class="add_to_cart_button lemon" type="button" name="button" (click)="this.cartService.addToCart(product);">
-			<div class="add_to_cart_button_text">
-				В корзину
-			</div>
-			<img src="assets/arrow.svg" width="80px" alt="">
-		</button>
-	</div>
 
-	<img class="product_image" width="500px" height="auto"  [defaultImage]="'assets/loading.png'" [lazyLoad]='this.apiService.PHP_API_SERVER + "/backend/product-photos/" +product.photo'>
+		<img class="product_image" width="500px" height="auto"  [defaultImage]="'assets/loading.png'" [lazyLoad]='this.apiService.PHP_API_SERVER + "/backend/product-photos/" +product.photo'>
+	</div>
 </div>
+
 
 <div class="reviews_title">Отзывы</div>
 <div class="reviews">

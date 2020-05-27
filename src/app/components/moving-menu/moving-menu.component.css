@@ -2,12 +2,11 @@
 .moving_menu{
   position: fixed;
   left: 0; top: 0;
-  width: 280px; height: 100%;
+  width: 280px; height: 100vh;
   background: #FFF;
-  z-index: 3;
+  z-index: 5;
   transform: translateX(-100%);
   transition: 0.5s;
-
 }
 .moving_menu.show{
   transform: translateX(0%);
@@ -30,14 +29,14 @@
   left: 0; top: 0;
   text-decoration: none;
   text-transform: uppercase;
-  font-size: 20px;
+  font-size: 15px;
   font-weight: 600;
   cursor: pointer;
-  transition: 0.1s;
+  transition: 0.2s;
   color: #000;
 }
 .moving_menu .menu_item:hover{
-  font-size: 25px;
+  font-size: 18px;
 }
 /*----------------------------------*/
 
@@ -111,10 +110,12 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  position: absolute;
+  right: 2%;
 }
 
 app-cart{
-  margin-left: 23px;
+  margin-left: 1%;
   transform: scale(0.75);
 }
 
@@ -153,7 +154,7 @@ app-cart{
   right: -40px; top: 0px;
   width: 40px; height: 50px;
   background: #FFF;
-
+  transform:  translateY(20%);
   z-index: 100;
 }
 
@@ -194,11 +195,17 @@ app-cart{
 }
 
 
+
+.icons, .title{
+
+  transition: 0.3s;
+}
+
 /*------------------------------------*/
 
 
 
-@media all and (min-width: 800px) {
+@media all and (min-width: 850px) {
   .moving_menu{
     display: none;
   }
@@ -219,5 +226,18 @@ app-cart{
     opacity: 0;
   }
 
+  .icons, .title{
+    transform: scale(1);
+  }
 
+}
+
+@media all and (max-width: 500px) {
+  .title{
+    transform: scale(0.6);
+  }
+
+  .icon_wrapper{
+    transform: scale(0.6) translateY(30%);
+  }
 }

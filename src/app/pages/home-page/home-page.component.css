@@ -6,6 +6,7 @@
 
 .to_catalog img {
   display: block;
+	width: 100%;
 }
 
 .to_catalog .content{
@@ -57,12 +58,13 @@
 	flex-direction: row;
 	margin-top: 75px;
 	margin-left: 3%;
+	margin-right: 3%;
 	margin-bottom: 75px;
 }
 
 .to_about_us .content{
 	margin-top: 75px;
-	margin-left: 33px;
+	margin-left: 5%;
 }
 
 .to_about_us .content_title{
@@ -84,4 +86,35 @@
 	left: 50%;
 	transform: translateX(-50%);
 	margin-top: 20px;
+}
+
+
+.content, .to_about_us img{
+	transition: 0.3s;
+}
+
+@media all and (max-width: 800px) {
+	.to_catalog .content{
+		transform: scale(0.5) translate(-100%, -100%);
+		width: 100%;
+	}
+
+	.to_about_us .content{
+		transform: scale(0.7) translate(-20%, -20%);
+	}
+
+	.to_about_us img{
+		width: 150px;
+		height: auto;
+	}
+}
+
+@media all and (max-width: 500px) {
+	.to_about_us .content{
+		transform: scale(0.5) translate(-50%, -50%);
+	}
+	.to_about_us img{
+		width: 110px;
+		height: auto;
+	}
 }

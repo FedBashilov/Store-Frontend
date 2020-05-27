@@ -31,7 +31,7 @@ export class AuthService {
 
 
   login(email, password): Observable<any>{
-    return this.httpClient.post<any>(`${this.PHP_API_SERVER}/API.php/login-client`, {data: { email: email, password: password }});
+    return this.httpClient.post<any>(`${this.PHP_API_SERVER}/API.php/clients/login`, {data: { email: email, password: password }});
   }
 
   setCurrentClient(jwt: string){
@@ -48,8 +48,8 @@ export class AuthService {
     this.currentClientSubject.next(new Client);
   }
 
-  registration(newClient: Client): Observable<string>{
-    return this.httpClient.post<string>(`${this.PHP_API_SERVER}/API.php/clients`, {data: newClient});
+  registration(newClient: Client): Observable<any>{
+    return this.httpClient.post<any>(`${this.PHP_API_SERVER}/API.php/clients`, {data: newClient});
   }
 
   getClientInfo(): Observable<Client>{

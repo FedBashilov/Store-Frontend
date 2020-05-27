@@ -36,7 +36,7 @@ export class MovingMenuComponent implements OnInit {
             break;
           case "/contacts":
             lineMenuItems[3].classList.add("current");
-            break;      
+            break;
           default:
             break;
         }

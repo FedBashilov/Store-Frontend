@@ -124,6 +124,7 @@ export class AuthorizationComponent implements OnInit, OnDestroy {
     );
 
     this.authService.registration(newClient).subscribe( (response: any) =>{
+
       if(response.jwt){
         this.authService.setCurrentClient(response.jwt);
         this.showOrHideForm();
@@ -137,16 +138,11 @@ export class AuthorizationComponent implements OnInit, OnDestroy {
 
   showOrHideForm(){
     let movingAuthWindow: any = document.getElementsByClassName("moving_auth_window")[0];
-    let curtain: any = document.getElementsByClassName("form_curtain")[0];
 
     if(movingAuthWindow.classList.contains("show")){
       movingAuthWindow.classList.remove("show");
-      curtain.classList.remove("on");
-      curtain.classList.add("off");
     } else {
       movingAuthWindow.classList.add("show");
-      curtain.classList.remove("off");
-      curtain.classList.add("on");
     }
   }
 
