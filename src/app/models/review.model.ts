@@ -1,11 +1,12 @@
+//Импорт класс-модели Пользователь
 import {Client} from "./client.model";
 
-export class Review{
-  public product_id: number = null;
-  public text: string = '';
-  public rating: number = null;
-  public modified: Date = new Date();
-  public client: Client = new Client();
+export class Review{  //Класс-модель отзыва
+  public product_id: number = null; //id товара
+  public text: string = ''; //Текст
+  public rating: number = null; //Оценка
+  public modified: Date = new Date(); //Дата
+  public client: Client = new Client(); //Пользователь
 
   constructor(product_id?, text?, rating?){
     this.product_id = product_id;

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
+//Импорт компонентов страниц
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { ShopPageComponent } from './pages/shop-page/shop-page.component';
 import { ProductPageComponent } from './pages/product-page/product-page.component';
@@ -8,6 +9,7 @@ import { AboutUsPageComponent } from './pages/about-us-page/about-us-page.compon
 import { ContactsPageComponent } from './pages/contacts-page/contacts-page.component';
 import { CartPageComponent } from './pages/cart-page/cart-page.component';
 
+//Объявление всех маршрутов приложения
 const routes: Routes = [
     {path: '', redirectTo: 'home', pathMatch: 'full'},
     {path: 'home', component: HomePageComponent},

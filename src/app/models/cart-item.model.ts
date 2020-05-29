@@ -1,11 +1,12 @@
+//Импорт класс-модели Товар
 import { Product } from "./product.model";
 
-export class CartItem{
-  public id: number = null;
-  public name: string = "";
-  public price: number = null;
-  public photo: string = '';
-  public amount: number = null;
+export class CartItem{  //Класс-модель товара в корзине
+  public id: number = null; //id товара
+  public name: string = ""; //Название товара
+  public price: number = null;  //Цена товара
+  public photo: string = '';  //Фото товара
+  public amount: number = null; //Количество
 
   constructor(product?, amount?){
     this.id = product.id;

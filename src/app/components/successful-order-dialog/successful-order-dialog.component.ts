@@ -6,6 +6,7 @@ import {MAT_DIALOG_DATA} from '@angular/material/dialog';
   templateUrl: './successful-order-dialog.component.html',
   styleUrls: ['./successful-order-dialog.component.css']
 })
+//Компонент модального окна, выплывающего при успешном оформлении заказа
 export class SuccessfulOrderDialogComponent implements OnInit {
 
 constructor(@Inject(MAT_DIALOG_DATA) public data: any) { }

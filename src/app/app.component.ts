@@ -11,7 +11,7 @@ export class AppComponent {
   constructor(private router: Router) {
   }
 
-  moveContent(){
+  moveContent(){  //Сдвигает блок content при открытии бокового меню
     let content: any = document.getElementsByClassName("content")[0];
     if( content.classList.contains("moved") ){
       content.classList.remove("moved");

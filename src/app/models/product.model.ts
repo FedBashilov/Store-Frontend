@@ -1,7 +1,7 @@
-export class Product{
-  public id: number = null;
-  public name: string = '';
-  public description: string = '';
-  public price: number = null;
-  public photo: string = '';
+export class Product{ //Класс-модель товара
+  public id: number = null; //id
+  public name: string = ''; //Название
+  public description: string = '';  //Описание
+  public price: number = null;  //Цена
+  public photo: string = '';  //Фото
 }

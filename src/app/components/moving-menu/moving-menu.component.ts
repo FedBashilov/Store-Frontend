@@ -6,19 +6,20 @@ import { Router, RouterEvent, NavigationEnd } from '@angular/router';
   templateUrl: './moving-menu.component.html',
   styleUrls: ['./moving-menu.component.css']
 })
+//Компонент шапки сайта
 export class MovingMenuComponent implements OnInit {
+  //Декоратор, оповещающий об открытии или скрытии бокового меню
   @Output() onChanged = new EventEmitter<boolean>();
 
   constructor(public router: Router) {
+    let lineMenuItems: any = null;  //Навигационные элементы
+    let current: any = null;  //Текущий нав. элемент
 
-    let lineMenuItems: any = null;
-    let current: any = null;
-
+    //Установка текущего навигационного элемента
     router.events.subscribe((event: RouterEvent) =>{
       if(event instanceof NavigationEnd){
-
-        current = document.getElementsByClassName("current")[0];
         lineMenuItems = document.getElementsByClassName("line_menu_item");
+        current = document.getElementsByClassName("current")[0];
 
         if( current ){
           current.classList.remove("current");
@@ -48,10 +49,7 @@ export class MovingMenuComponent implements OnInit {
   ngOnInit() {
   }
 
-  change() {
-    this.onChanged.emit();
-  }
-
+  //Метод для открытия или скрытия бокового меню
   showOrHideMenu(){
     let movingMenu: any = document.getElementsByClassName("moving_menu")[0];
     let curtain: any = document.getElementsByClassName("curtain")[0];
@@ -74,7 +72,7 @@ export class MovingMenuComponent implements OnInit {
       icon.classList.add("cross");
     }
 
-    this.change();
+    this.onChanged.emit();
   }
 
 }

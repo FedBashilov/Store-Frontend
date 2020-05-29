@@ -3,8 +3,10 @@ import { Subscription } from "rxjs";
 
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
+//Импорт компонента информации о клиенте
 import { ClientAccountComponent } from '../client-account/client-account.component';
 
+//Импорт сервисов
 import { AuthService } from '../../services/auth.service';
 import { ApiService } from '../../services/api.service';
 import { Client } from '../../models/client.model';
@@ -14,31 +16,36 @@ import { Client } from '../../models/client.model';
   templateUrl: './authorization.component.html',
   styleUrls: ['./authorization.component.css']
 })
+//Компонент для авторизации пользователя
 export class AuthorizationComponent implements OnInit, OnDestroy {
 
-  public isRegistered: boolean = true;
-  loginForm: FormGroup;
-  loginErrorMessage: string = "";
-  registrationErrorMessage: string = "";
-  registrationForm: FormGroup;
+  public isRegistered: boolean = true;  //Для того, какую форму показывать пользователю
+  public loginForm: FormGroup;  //Форма входа
+  public loginErrorMessage: string = "";  //Сообщения об ошибке формы входа
+  public registrationForm: FormGroup; //Форма регистрации
+  public registrationErrorMessage: string = ""; //Сообщения об ошибке формы регистрации
 
+  //Отслеживаемый текущий пользователь
   private subscriptionClient: Subscription;
   public currentClient: Client = new Client;
 
   constructor(private authService: AuthService, private apiService: ApiService, private fb: FormBuilder) {
-      this.subscriptionClient = this.authService.currentClient.subscribe(currentClient => { this.currentClient = currentClient; });
+    //Установка текущего пользователя
+    this.subscriptionClient = this.authService.currentClient.subscribe(currentClient => { this.currentClient = currentClient; });
   }
 
   ngOnInit(): void {
+    //Инициализация форм
     this.initForms();
   }
 
 
   ngOnDestroy(){
+    //Отписка от отслеживания
     this.subscriptionClient.unsubscribe();
   }
 
-
+  //Метод для инициализации форм
   initForms(){
     this.loginForm = this.fb.group({
       email: ['', [
@@ -82,12 +89,14 @@ export class AuthorizationComponent implements OnInit, OnDestroy {
     });
   }
 
+  // Метод для контролирования валидации
   isControlInvalid(controlName: string, form: FormGroup): boolean {
     const control = form.controls[controlName];
     const result = control.invalid && control.touched;
     return result;
   }
 
+  //Метод для входа пользователя
   onSubmitLogin() {
     const controls = this.loginForm.controls;
     if (this.loginForm.invalid) {
@@ -108,6 +117,7 @@ export class AuthorizationComponent implements OnInit, OnDestroy {
     });
   }
 
+  //Метод для регистрации пользователя
   onSubmitRegistration() {
     const controls = this.registrationForm.controls;
     if (this.registrationForm.invalid) {
@@ -135,7 +145,7 @@ export class AuthorizationComponent implements OnInit, OnDestroy {
     });
   }
 
-
+  //Метод для открытия или скрытия окна с формами
   showOrHideForm(){
     let movingAuthWindow: any = document.getElementsByClassName("moving_auth_window")[0];
 

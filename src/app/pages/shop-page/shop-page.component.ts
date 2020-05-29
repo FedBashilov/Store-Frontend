@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './shop-page.component.html',
   styleUrls: ['./shop-page.component.css']
 })
+//Компонент страницы "Каталог"
 export class ShopPageComponent implements OnInit {
 
   constructor() { }

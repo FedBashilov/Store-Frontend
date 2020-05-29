@@ -1,19 +1,20 @@
 import { Injectable } from '@angular/core';
 import { Observable, BehaviorSubject } from 'rxjs';
-
+//Импорт классов-моделей
 import { CartItem } from '../models/cart-item.model';
 import { Product } from '../models/product.model';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CartService {
+export class CartService {  //Сервис для корзины пользователя
 
+  //Отслеживаемый счетчик количества товаров в корзине
   private cartCounterSubject = new BehaviorSubject<number>(this.setCartCounter());
-  cartCounter = this.cartCounterSubject.asObservable();
-  counter: number;
+  public cartCounter = this.cartCounterSubject.asObservable();
+  public counter: number;
 
-
+  //Метод для установки счетчика товаров
   setCartCounter(): number{
     let items = this.getItems();
     this.counter = 0;
@@ -23,6 +24,7 @@ export class CartService {
     return this.counter;
   }
 
+  //Метод для добавления товара в корзину
   addToCart(product: Product){
     this.cartCounterSubject.next(++this.counter);
 
@@ -40,6 +42,7 @@ export class CartService {
     localStorage.setItem("cartItems", JSON.stringify(items));
   }
 
+  //Метод для удаления товара из корзины
   deleteFromCart(id){
     this.cartCounterSubject.next(--this.counter);
     let items = this.getItems();
@@ -59,6 +62,7 @@ export class CartService {
 
   }
 
+  //Метод для получения товаров в корзине
   getItems(){
     let items: CartItem[] = [];
     let data: CartItem[];
@@ -70,6 +74,7 @@ export class CartService {
     return items;
   }
 
+  //Метод для получения общей стоимости всех товаров в корзине
   getTotalPrice(): number{
     let items = this.getItems();
     let totalPrice: number = 0;
@@ -81,6 +86,7 @@ export class CartService {
     return totalPrice;
   }
 
+  //Метод для очистки корзины
   clearCart(){
     localStorage.removeItem("cartItems");
     this.cartCounterSubject.next(this.counter=0);
