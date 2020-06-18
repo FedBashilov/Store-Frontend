@@ -123,6 +123,4 @@ export class ClientAccountComponent implements OnInit, OnDestroy {
     this.showOrHideForm();
   }
 
-
-
 }

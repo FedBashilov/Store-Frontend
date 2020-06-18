@@ -18,7 +18,7 @@ export class AuthService {  //Сервис авторизации
   public PHP_API_SERVER = "http://localhost"; //Адрес сервера
 
   constructor(private httpClient: HttpClient) {
-    //Объявление текущего пользователя
+    //Установка текущего пользователя
     let client: Client = JSON.parse(localStorage.getItem("current_client"));
     if(client){
       this.currentClientSubject.next(client);

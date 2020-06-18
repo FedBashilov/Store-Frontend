@@ -30,8 +30,10 @@ export class AuthorizationComponent implements OnInit, OnDestroy {
   public currentClient: Client = new Client;
 
   constructor(private authService: AuthService, private apiService: ApiService, private fb: FormBuilder) {
-    //Установка текущего пользователя
-    this.subscriptionClient = this.authService.currentClient.subscribe(currentClient => { this.currentClient = currentClient; });
+    //Подписка на текущего пользователя
+    this.subscriptionClient = this.authService.currentClient.subscribe(currentClient => {
+      this.currentClient = currentClient;
+    });
   }
 
   ngOnInit(): void {
